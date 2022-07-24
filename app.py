@@ -38,9 +38,9 @@ def predict():
         classes = np.argmax(classes, axis=1)
         #print(classes * 10)
         if classes==0:
-            print('This is a male gender')
+            response = 'This is a male gender'
         else:
-            print('This is a female gender')
+            response ='This is a female gender'
     return render_template("index.html", prediction=response, image=image)
 
 
