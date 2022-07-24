@@ -11,7 +11,7 @@
 <body>
 
 <div class="container">
-    <h1 class="jumbotron bg-primary">Image Classfication</h1>
+    <h1 class="jumbotron bg-primary">Gender Classfication</h1>
     <br><br>
     <form class="form-horizontal" action="/submit" method="POST" enctype="multipart/form-data">
 
@@ -30,7 +30,7 @@
     </form>
 
         {% if prediction %}
-    <img src="./media/image.filename" width="300" height="300">
+    <img src="./media/image.filename" width="100" height="100">
         <h2> Your Prediction :<i> {{prediction}} </i></h2>
         {% endif %}
 
