@@ -15,7 +15,7 @@ global graph, model
 
 
 app = Flask(__name__, template_folder='Template')
-model = load_model('gendermodel.h5')
+model = load_model('weights.h5')
 
 @app.route('/', methods=['GET'])
 def index_view():
@@ -29,7 +29,7 @@ def predict():
         basepath = os.path.dirname(__file__)
         image_path = os.path.join(basepath, secure_filename(image.filename))
         image.save(image_path)
-        img = load_img(image_path, target_size=(300, 300))
+        img = load_img(image_path, target_size=(150, 150))
         x = img_to_array(img)
         x=x/225
         x = np.expand_dims(x, axis=0)
