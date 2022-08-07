@@ -15,7 +15,7 @@ global graph, model
 
 
 app = Flask(__name__, template_folder='Template')
-model = load_model('weights.h5')
+model = load_model('gen_model.h5')
 
 @app.route('/', methods=['GET'])
 def index_view():
@@ -29,18 +29,17 @@ def predict():
         basepath = os.path.dirname(__file__)
         image_path = os.path.join(basepath, secure_filename(image.filename))
         image.save(image_path)
-        img = load_img(image_path, target_size=(150, 150))
+        img = load_img(image_path, target_size=(299, 299))
         x = img_to_array(img)
         x=x/225
         x = np.expand_dims(x, axis=0)
         image_tensor = np.vstack([x])
-        classes = model.predict(image_tensor)
-        classes = np.argmax(classes, axis=1)
-        #print(classes * 10)
-        if classes==0:
-            response = 'This is a male gender'
+        classes=model.predict(image_tensor)
+        print(classes[0])
+        if classes[0] > 0.5:
+            response = 'This is a male gender
         else:
-            response ='This is a female gender'
+            response = 'This is a female gender'
     return render_template("index.html", prediction=response, image=image)
 
 
