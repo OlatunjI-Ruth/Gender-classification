@@ -37,7 +37,7 @@ def predict():
         classes=model.predict(image_tensor)
         print(classes[0])
         if classes[0] > 0.5:
-            response = 'This is a male gender
+            response = 'This is a male gender'
         else:
             response = 'This is a female gender'
     return render_template("index.html", prediction=response, image=image)
