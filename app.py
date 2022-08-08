@@ -12,6 +12,7 @@ from keras.utils import load_img, img_to_array
 from werkzeug.utils import secure_filename
 sys.path.append(os.path.abspath("./model"))
 global graph, model
+import tensorflow_hub as hub
 
 
 app = Flask(__name__, template_folder='Template')
