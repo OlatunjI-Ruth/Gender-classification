@@ -33,4 +33,4 @@ CNN
 
 for a well detailed explanation of the steps and errors involved, please visit my blog https://medium.com/@rutherfordola
 
-Here is a link to the web app www.gender-classificationn.herokuapp.com
+Here is a link to the web app https://gender-classificationn.herokuapp.com/
